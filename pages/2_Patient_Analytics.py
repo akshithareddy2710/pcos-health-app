@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
-from datetime import datetime
 from io import BytesIO
 import os
 
@@ -1993,7 +1992,7 @@ with download_col2:
 
         story.append(
             Paragraph(
-                f"Generated: {last_refreshed}",
+                "Generated: PCOS Patient Analytics Dashboard",
                 styles["Normal"]
             )
         )
