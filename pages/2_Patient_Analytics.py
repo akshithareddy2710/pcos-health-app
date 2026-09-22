@@ -720,16 +720,6 @@ last_refreshed = datetime.now().strftime(
 )
 
 
-# YOUR POWER BI LINK
-
-POWER_BI_URL = (
-    "https://app.powerbi.com/groups/me/reports/"
-    "9001922a-00a3-431a-9f8b-8ca8ad7a6e6c/"
-    "5e101a4200c909238e53"
-    "?experience=power-bi"
-)
-
-
 st.markdown(
     f"""
     <div class="dashboard-header">
@@ -753,13 +743,7 @@ st.markdown(
                 Last Refreshed: {last_refreshed}
             </div>
 
-            <a
-                href="{POWER_BI_URL}"
-                target="_blank"
-                class="powerbi-button"
-            >
-                📊 Open in Power BI ↗
-            </a>
+
 
         </div>
 
