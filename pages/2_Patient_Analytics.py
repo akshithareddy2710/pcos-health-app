@@ -11,17 +11,16 @@ import os
 # HTML RENDER HELPER
 # ============================================================
 
-def render_html(content):
+def render_html(content, unsafe_allow_html=False):
     """
-    Render dashboard HTML safely.
-    Uses st.html when available and falls back to st.markdown
-    for older Streamlit versions.
+    Render dashboard HTML safely across Streamlit versions.
     """
-    if hasattr(st, "html"):
+    if unsafe_allow_html:
+        st.markdown(content, unsafe_allow_html=True)
+    elif hasattr(st, "html"):
         st.html(content)
     else:
-        st.markdown(content)
-
+        st.markdown(content, unsafe_allow_html=True)
 
 # ============================================================
 # PAGE CONFIG
