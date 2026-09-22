@@ -8,6 +8,22 @@ import os
 
 
 # ============================================================
+# HTML RENDER HELPER
+# ============================================================
+
+def render_html(content):
+    """
+    Render dashboard HTML safely.
+    Uses st.html when available and falls back to st.markdown
+    for older Streamlit versions.
+    """
+    if hasattr(st, "html"):
+        st.html(content)
+    else:
+        st.markdown(content, unsafe_allow_html=True)
+
+
+# ============================================================
 # PAGE CONFIG
 # ============================================================
 
@@ -269,7 +285,7 @@ else:
 # CSS
 # ============================================================
 
-st.markdown(
+render_html(
     """
 <style>
 
@@ -714,25 +730,14 @@ section[data-testid="stMain"] .block-container {
 # HEADER
 # ============================================================
 
-st.markdown(
+render_html(
     f"""
     <div class="dashboard-header">
-
         <div class="dashboard-header-left">
-
             <div class="dashboard-title">
                 📊 PCOS Patient Analytics Dashboard
             </div>
-
         </div>
-
-
-        <div class="dashboard-header-right">
-
-
-
-        </div>
-
     </div>
 
     <div class="dashboard-divider"></div>
@@ -745,7 +750,7 @@ st.markdown(
 # PATIENT OVERVIEW
 # ============================================================
 
-st.markdown(
+render_html(
     '<div class="section-title">👥 Patient Overview</div>',
     unsafe_allow_html=True
 )
@@ -767,12 +772,12 @@ filter_col, overview_col = st.columns(
 
 with filter_col:
 
-    st.markdown(
+    render_html(
         '<div class="filter-box">',
         unsafe_allow_html=True
     )
 
-    st.markdown(
+    render_html(
         """
         <div style="
             color:white;
@@ -877,7 +882,7 @@ with filter_col:
     # USE FILTERS LINE
     # --------------------------------------------------------
 
-    st.markdown(
+    render_html(
         """
         <div class="interactive-line">
 
@@ -891,7 +896,7 @@ with filter_col:
     )
 
 
-    st.markdown(
+    render_html(
         "</div>",
         unsafe_allow_html=True
     )
@@ -1021,7 +1026,7 @@ with overview_col:
 
         with container:
 
-            st.markdown(
+            render_html(
                 f"""
                 <div class="kpi-card">
 
@@ -1097,7 +1102,7 @@ with overview_col:
     )
 
 
-    st.markdown(
+    render_html(
         f"""
         <div style="
             color:#8fa8c5;
@@ -1117,7 +1122,7 @@ with overview_col:
 # VISUAL SECTION DIVIDER
 # ============================================================
 
-st.markdown(
+render_html(
     """
     <div style="
         height:1px;
@@ -1191,7 +1196,7 @@ col1, col2, col3 = st.columns(
 
 with col1:
 
-    st.markdown(
+    render_html(
         '<div class="graph-title">📈 Age Distribution</div>',
         unsafe_allow_html=True
     )
@@ -1235,7 +1240,7 @@ with col1:
 
 with col2:
 
-    st.markdown(
+    render_html(
         '<div class="graph-title">⚖️ BMI Distribution</div>',
         unsafe_allow_html=True
     )
@@ -1279,7 +1284,7 @@ with col2:
 
 with col3:
 
-    st.markdown(
+    render_html(
         '<div class="graph-title">🩺 PCOS vs Non-PCOS</div>',
         unsafe_allow_html=True
     )
@@ -1352,7 +1357,7 @@ col4, col5, col6 = st.columns(
 
 with col4:
 
-    st.markdown(
+    render_html(
         '<div class="graph-title">🧪 Hormone Analysis</div>',
         unsafe_allow_html=True
     )
@@ -1412,7 +1417,7 @@ with col4:
 
 with col5:
 
-    st.markdown(
+    render_html(
         '<div class="graph-title">📊 LH / FSH Ratio</div>',
         unsafe_allow_html=True
     )
@@ -1488,7 +1493,7 @@ with col5:
 
 with col6:
 
-    st.markdown(
+    render_html(
         '<div class="graph-title">🌸 Follicle Count Analysis</div>',
         unsafe_allow_html=True
     )
@@ -1566,7 +1571,7 @@ col7, col8, col9 = st.columns(
 
 with col7:
 
-    st.markdown(
+    render_html(
         '<div class="graph-title">👜 Weight by PCOS Status</div>',
         unsafe_allow_html=True
     )
@@ -1619,7 +1624,7 @@ with col7:
 
 with col8:
 
-    st.markdown(
+    render_html(
         '<div class="graph-title">💗 Symptoms Frequency</div>',
         unsafe_allow_html=True
     )
@@ -1768,7 +1773,7 @@ with col8:
 
 with col9:
 
-    st.markdown(
+    render_html(
         '<div class="graph-title">⚖️ BMI by PCOS Status</div>',
         unsafe_allow_html=True
     )
@@ -1819,7 +1824,7 @@ with col9:
 # INTERACTIVE MESSAGE
 # ============================================================
 
-st.markdown(
+render_html(
     """
     <div class="interactive-line">
 
@@ -1836,7 +1841,7 @@ st.markdown(
 # DOWNLOAD REPORT
 # ============================================================
 
-st.markdown(
+render_html(
     '<div class="section-title">📥 Download Report</div>',
     unsafe_allow_html=True
 )
@@ -2032,7 +2037,7 @@ with download_col2:
 # FOOTER
 # ============================================================
 
-st.markdown(
+render_html(
     """
     <div style="
         text-align:center;
