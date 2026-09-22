@@ -756,24 +756,23 @@ filter_col, overview_col = st.columns(
 
 with filter_col:
 
-    st.markdown(
-        '<div class="filter-box">',
-        unsafe_allow_html=True
-    )
+    filter_container = st.container(border=True)
 
-    st.markdown(
-        """
-        <div style="
-            color:white;
-            font-size:22px;
-            font-weight:750;
-            margin-bottom:18px;
-        ">
-            🔎 Patient Filters
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+    with filter_container:
+
+        st.markdown(
+            """
+            <div style="
+                color:white;
+                font-size:22px;
+                font-weight:750;
+                margin-bottom:18px;
+            ">
+                🔎 Patient Filters
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
 
     # --------------------------------------------------------
@@ -880,10 +879,6 @@ with filter_col:
     )
 
 
-    st.markdown(
-        "</div>",
-        unsafe_allow_html=True
-    )
 
 
 # ============================================================
@@ -1010,25 +1005,20 @@ with overview_col:
 
         with container:
 
-            st.markdown(
+            st.html(
                 f"""
                 <div class="kpi-card">
-
                     <div class="kpi-title">
                         {icon} {title}
                     </div>
-
                     <div class="kpi-value">
                         {value}
                     </div>
-
                     <div class="kpi-subtitle">
                         {subtitle}
                     </div>
-
                 </div>
-                """,
-                unsafe_allow_html=True
+                """
             )
 
 
