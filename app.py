@@ -1,16 +1,83 @@
 import streamlit as st
 from PIL import Image
+
 # ================= SESSION STATE =================
+
 
 # ---------------- PAGE CONFIG ----------------
 st.set_page_config(
     page_title="PCOS Analytics & AI Platform",
-    
     layout="wide"
 )
 
 
+# ================= SIDEBAR DESIGN =================
+
+st.sidebar.markdown("""
+<style>
+
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #071226 0%, #0b1830 100%);
+}
+
+/* Sidebar motivational card */
+.sidebar-card {
+    background: linear-gradient(145deg, #152945, #0e1d35);
+    border: 1px solid #29466e;
+    border-radius: 14px;
+    padding: 16px 14px 10px 14px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    text-align: left;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+}
+
+.sidebar-card-title {
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.7;
+    margin-bottom: 8px;
+}
+
+.sidebar-card-title span {
+    color: #ff8fb3;
+}
+
+/* Sidebar woman image */
+[data-testid="stSidebar"] [data-testid="stImage"] img {
+    border-radius: 12px;
+    width: 100%;
+    object-fit: cover;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+
+# ---------------- SIDEBAR MOTIVATIONAL CARD ----------------
+
+st.sidebar.markdown("""
+<div class="sidebar-card">
+    <div class="sidebar-card-title">
+        <span>♡</span> Early Detection.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Better Care.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Healthier Lives.
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+
+# ---------------- SIDEBAR WOMAN IMAGE ----------------
+
+st.sidebar.image(
+    "pcos_sidebar_woman.png",
+    use_container_width=True
+)
+
+
 # ---------------- REMOVE PADDING ----------------
+
 st.markdown("""
 <style>
 
@@ -48,7 +115,9 @@ footer{
 </style>
 """, unsafe_allow_html=True)
 
+
 # ---------------- HERO IMAGE ----------------
+
 hero = Image.open("hero.png")
 
 # Resize to banner
@@ -72,6 +141,7 @@ Early Detection. Better Care. Healthier Lives for Every Woman.
 </p>
 """, unsafe_allow_html=True)
 
+
 # ================= TITLE =================
 
 st.markdown("""
@@ -80,11 +150,10 @@ st.markdown("""
 </h2>
 """, unsafe_allow_html=True)
 
+
 col1, col2, col3 = st.columns(3)
 
 
-# ---------------- ABOUT PCOS ----------------
-# ---------------- ABOUT PCOS ----------------
 # ---------------- ABOUT PCOS ----------------
 
 with col1:
@@ -117,7 +186,9 @@ box-shadow:0 3px 10px rgba(0,0,0,0.25);">
         unsafe_allow_html=True,
     )
 
+
 # ---------------- PATIENT ANALYTICS ----------------
+
 with col2:
     st.markdown("""
     <div style="
@@ -148,6 +219,7 @@ with col2:
 
 
 # ---------------- HOW OUR APP HELPS ----------------
+
 with col3:
     st.markdown("""
     <div style="
@@ -175,5 +247,3 @@ with col3:
 
     </div>
     """, unsafe_allow_html=True)
-
-
