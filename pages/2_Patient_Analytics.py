@@ -1153,6 +1153,11 @@ def graph_layout(fig):
     return fig
 
 
+st.markdown(
+    '<div class="section-title">📊 Analytics Visualizations</div>',
+    unsafe_allow_html=True
+)
+
 # ============================================================
 # ROW 1
 # AGE | BMI | PCOS
@@ -1197,7 +1202,7 @@ with col1:
 
         st.plotly_chart(
             fig,
-            width="stretch",
+            use_container_width=True,
             config={
                 "displayModeBar": False
             }
@@ -1241,7 +1246,7 @@ with col2:
 
         st.plotly_chart(
             fig,
-            width="stretch",
+            use_container_width=True,
             config={
                 "displayModeBar": False
             }
@@ -1307,7 +1312,7 @@ with col3:
 
     st.plotly_chart(
         fig,
-        width="stretch",
+        use_container_width=True,
         config={
             "displayModeBar": False
         }
@@ -1374,7 +1379,7 @@ with col4:
 
         st.plotly_chart(
             fig,
-            width="stretch",
+            use_container_width=True,
             config={
                 "displayModeBar": False
             }
@@ -1442,7 +1447,7 @@ with col5:
 
             st.plotly_chart(
                 fig,
-                width="stretch",
+                use_container_width=True,
                 config={
                     "displayModeBar": False
                 }
@@ -1515,7 +1520,7 @@ with col6:
 
         st.plotly_chart(
             fig,
-            width="stretch",
+            use_container_width=True,
             config={
                 "displayModeBar": False
             }
@@ -1579,7 +1584,7 @@ with col7:
 
         st.plotly_chart(
             fig,
-            width="stretch",
+            use_container_width=True,
             config={
                 "displayModeBar": False
             }
@@ -1728,7 +1733,7 @@ with col8:
 
         st.plotly_chart(
             fig,
-            width="stretch",
+            use_container_width=True,
             config={
                 "displayModeBar": False
             }
@@ -1781,7 +1786,7 @@ with col9:
 
         st.plotly_chart(
             fig,
-            width="stretch",
+            use_container_width=True,
             config={
                 "displayModeBar": False
             }
@@ -1849,7 +1854,7 @@ with download_col1:
         data=csv_data,
         file_name="PCOS_Filtered_Patient_Report.csv",
         mime="text/csv",
-        width="stretch"
+        use_container_width=True
     )
 
 
@@ -1996,7 +2001,7 @@ with download_col2:
             data=buffer,
             file_name="PCOS_Patient_Analytics_Report.pdf",
             mime="application/pdf",
-            width="stretch"
+            use_container_width=True
         )
 
     except ImportError:
