@@ -49,7 +49,7 @@ footer{
 """, unsafe_allow_html=True)
 
 # ---------------- HERO IMAGE ----------------
-hero = Image.open("images/hero.png")
+hero = Image.open("hero.png")
 
 # Resize to banner
 hero = hero.resize((1500, 450))
