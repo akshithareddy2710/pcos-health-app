@@ -20,7 +20,7 @@ def render_html(content):
     if hasattr(st, "html"):
         st.html(content)
     else:
-        st.markdown(content, unsafe_allow_html=True)
+        st.markdown(content)
 
 
 # ============================================================
@@ -721,8 +721,7 @@ section[data-testid="stMain"] .block-container {
 }
 
 </style>
-""",
-    unsafe_allow_html=True
+"""
 )
 
 
@@ -741,8 +740,7 @@ render_html(
     </div>
 
     <div class="dashboard-divider"></div>
-    """,
-    unsafe_allow_html=True
+    """
 )
 
 
@@ -751,8 +749,7 @@ render_html(
 # ============================================================
 
 render_html(
-    '<div class="section-title">👥 Patient Overview</div>',
-    unsafe_allow_html=True
+    '<div class="section-title">👥 Patient Overview</div>'
 )
 
 
@@ -1130,8 +1127,7 @@ render_html(
         margin-top:22px;
         margin-bottom:18px;
     "></div>
-    """,
-    unsafe_allow_html=True
+    """
 )
 
 
@@ -1832,8 +1828,7 @@ render_html(
         Use filters to explore data.
 
     </div>
-    """,
-    unsafe_allow_html=True
+    """
 )
 
 
@@ -1842,8 +1837,7 @@ render_html(
 # ============================================================
 
 render_html(
-    '<div class="section-title">📥 Download Report</div>',
-    unsafe_allow_html=True
+    '<div class="section-title">📥 Download Report</div>'
 )
 
 
@@ -2051,6 +2045,5 @@ render_html(
         &nbsp; • &nbsp;
         PCOS Patient Analytics Dashboard
     </div>
-    """,
-    unsafe_allow_html=True
+    """
 )
