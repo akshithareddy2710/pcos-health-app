@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
-from datetime import datetime
 from io import BytesIO
 import os
 
@@ -715,11 +714,6 @@ section[data-testid="stMain"] .block-container {
 # HEADER
 # ============================================================
 
-last_refreshed = datetime.now().strftime(
-    "%d %b %Y, %I:%M %p"
-)
-
-
 st.markdown(
     f"""
     <div class="dashboard-header">
@@ -730,18 +724,10 @@ st.markdown(
                 📊 PCOS Patient Analytics Dashboard
             </div>
 
-            <div class="dashboard-subtitle">
-                Comprehensive analysis of PCOS patient dataset
-            </div>
-
         </div>
 
 
         <div class="dashboard-header-right">
-
-            <div class="last-refreshed">
-                Last Refreshed: {last_refreshed}
-            </div>
 
 
 
